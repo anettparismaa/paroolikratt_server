@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <html lang="et">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paroolikratt</title>
+    <meta name="description" content="Generaator aitab teil luua salafraase (paroole).">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Workbench:SCAN@-50&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <script defer type="text/javascript" src="/src/script.js"></script>
+  </head>
+
+  <body onload="loadElements()">
+    <div class="header" id="myHeader">
+      <ul class="header-list">
+        <li id="home">
+          <a href="/">Paroolikratt</a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="/generator">Generaator</a>
+        </li>
+        <li>
+          <a href="#nouanded">Nõuanded</a>
+        </li>
+      </ul>
+    </div>
+    <div class="container primary">
+      <div class="output-container">
+        <hgroup>
+          <h1>Genereeri salafraas</h1>
+          <h2>
+            Genereeri endale salafraas, sest see on turvalisem kui lihtsalt
+            salasõna ja jääb kergemini meelde.
+          </h2>
+        </hgroup>
+        <div class="button-group">
+          <div class="primary-button">
+            <button
+              type="submit"
+              id="passpharse-button"
+              onclick="copyText()"
+            ></button>
+          </div>
+          <div class="secondary-button">
+            <button onclick="regenerate()">Koosta uus</button>
+            <button onclick="copyText()">Kopeeri</button>
+          </div>
+        </div>
+        <div class="extracontainer">
+          <div class="numbers-group">
+            <label for="input-numbers">Numbrid:</label>
+            <div class="pikkus">
+              <button id="decrement-numbers">-</button>
+              <input
+                type="number"
+                id="input-numbers"
+                value="0"
+                min="0"
+                max="10"
+                readonly
+              />
+              <button id="increment-numbers">+</button>
+            </div>
+          </div>
+          <div class="lenght-group">
+            <label for="input-lenght">Pikkus:</label>
+            <div class="pikkus">
+              <button id="decrement-lenght">-</button>
+              <input type="number" id="input-lenght" value="5" readonly />
+              <button id="increment-lenght">+</button>
+            </div>
+          </div>
+          <div class="captal-group">
+            <label for="capital-letter">Suurtähed:</label>
+            <label class="switch">
+              <input
+                id="capital-letter"
+                type="checkbox"
+                onclick="upperCase()"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container nouanded">
+      <h2 id="nouanded">Nõuanded parooli loomiseks</h2>
+      <div class="nouanded_flex">
+        <div>
+          <h3>Unikaalsus</h3>
+          <ul>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>Kasuta igal kontol erinevat parooli.</p>
+            </li>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>
+                Head paroolid ei ole kergesti äraarvatavad. Need ei ole seotud,
+                nt seotud pereliikmete, elukoha või lemmikloomadega.
+              </p>
+            </li>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>Vaheta seadmete vaikeparoolid välja.</p>
+            </li>
+            <li>
+              <img src="/src/exit-icon-4622.png" alt="listImage" />
+              <p>Ära taaskasuta paroolide osasid.</p>
+            </li>
+            <li>
+              <img src="/src/exit-icon-4622.png" alt="listImage" />
+              <p>
+                Väldi levinud salasõnu, nt 123456, parool, qwerty, lammas,
+                minaise, maasikas
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pikkus</h3>
+          <ul>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>
+                Head paroolid on pikad, aga kergesti meeleshoitavad.
+                <b
+                  >Kasuta salafraase, sest need on pikemad püsivad hästi
+                  meeles.</b
+                >
+              </p>
+            </li>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>Parool pikkus võiks olla vähemalt 12 tähemärki.</p>
+            </li>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>
+                Parooli keerukus tuleneb pikkusest. Märkide jada, mis on
+                inimesele keerukas, taandub arvuti jaoks samale mustrile.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hoiustamine</h3>
+          <ul>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>
+                <b
+                  >Kasuta mitmeastmelist autentimist, nt biomeetriat või
+                  kinnituskoodi.</b
+                >
+              </p>
+            </li>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>Sinu paroolid on ainult Sulle isiklikuks teadmiseks.</p>
+            </li>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>Vaheta paroole regulaaarselt.</p>
+            </li>
+            <li>
+              <img src="/src/ok-icon-3099.png" alt="listImage" />
+              <p>Keerukate paroolide jaoks kasuta paroolihaldurit.</p>
+            </li>
+            <li>
+              <img src="/src/exit-icon-4622.png" alt="listImage" />
+              <p>
+                Ära kirjuta paroole nähtavasse kohta ega jaga neid oma
+                kaaslastega.
+              </p>
+            </li>
+            <li>
+              <img src="/src/exit-icon-4622.png" alt="listImage" />
+              <p>
+                Ära hoiusta paroole pilverakendustes, kust need võivad lekkida.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
